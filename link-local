@@ -1,0 +1,20 @@
+#!/bin/bash
+
+bucket=$1
+
+if [ -z $bucket ]; then
+	echo "Enter a bucket name as the first argument"
+	exit 1
+fi
+
+ln -s ../../public/post.html .aws/$bucket/post.html
+ln -s ../../public/css .aws/$bucket/css
+ln -s ../../public/fonts .aws/$bucket/fonts
+ln -s ../../public/js .aws/$bucket/js
+
+script_full_path="$( cd "$(dirname "$0")" ; pwd -P )"
+echo "Got full path as $script_full_path"
+
+www_link="/var/www/lambda-blog"
+rm $www_link
+ln -s "$script_full_path/.aws/$bucket" "$www_link"

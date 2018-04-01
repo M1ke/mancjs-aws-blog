@@ -1,0 +1,3 @@
+#!/bin/bash
+
+zip -r mancjs-aws-lambda.zip .config node_modules templates post-to-blog.js validate.js -x .config/qr.png -x .config/bucket_name

@@ -1,0 +1,12 @@
+#!/bin/bash
+
+bucket_name_file=".config/bucket_name"
+bucket=$(cat $bucket_name_file)
+
+if [ -z $bucket ]; then
+	echo "Bucket name must be set in '$bucket_name_file'"
+	exit 1
+fi
+
+export BUCKET=$(cat .config/bucket_name)
+node offline-post.js "$@"

@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>MancJS Blog - Post form</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+<body class="bg-light">
+
+<div class="container">
+    <div class="py-4 text-center">
+        <a href="index.html" title="Click to return home"><img class="d-block mx-auto mb-4" src="logo.png" alt=""
+             width="200" height="200"></a>
+        <p class="lead">This form lets you post to your blog.</p>
+    </div>
+
+    <div class="row justify-content-md-center">
+        <div class="col-md-8">
+            <form class="needs-validation js-post" novalidate data-action="https://1fuanpjjge.execute-api.eu-west-1.amazonaws.com/1/post" method="post">
+
+                <hr class="mb-4">
+                <div class="mb-3">
+                    <label for="subject">Subject</label>
+                    <input type="text" class="form-control" id="subject" name="subject" placeholder="Type a subject" required>
+                    <div class="invalid-feedback">
+                        This will be the title and part of the URL of your blog post
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="content">Blog post content <span class="text-muted">(can use markdown)</span></label>
+                    <textarea class="form-control" id="content" rows="8" placeholder="Type cool stuff here" name="content"></textarea>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-3 mb-3">
+                        <label for="auth">Authentication</label>
+                        <input type="password" class="form-control" id="auth" name="auth" placeholder="" required>
+                        <div class="invalid-feedback">
+                            Enter your authentication code
+                        </div>
+                    </div>
+                </div>
+                <button class="btn btn-primary btn-lg btn-block" type="submit">Post to your blog</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"
+        crossorigin="anonymous"></script>
+        <script type="text/javascript" src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+{
+  "name": "mancjs-aws-lambda",
+  "version": "1.0.0",
+  "description": "Tool to generate blog pages from posted markdown",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "M1ke",
+  "license": "MIT",
+  "dependencies": {
+    "aws-sdk": "^2.202.0",
+    "handlebars": "^4.0.11",
+    "moment": "^2.20.1",
+    "mustache": "^2.3.0",
+    "qrcode": "^1.2.0",
+    "showdown": "^1.8.6",
+    "speakeasy": "^2.0.0"
+  }
+}
