@@ -3,3 +3,6 @@ node_modules/
 .idea/
 .aws
 *.zip
+terraform/main.tf
+terraform/*.tfstate*
+terraform/.terraform

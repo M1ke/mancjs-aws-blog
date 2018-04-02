@@ -1,0 +1,22 @@
+variable "aws_id" {
+  default = "xxxxxxxx"
+}
+
+variable "blog_domain" {
+  default = "xxxx"
+}
+
+variable "domain" {
+  default = "xxxx"
+}
+
+provider "aws" {
+  region = "eu-west-1"
+  version = "~> 1.7"
+  profile = "xxxx"
+  # assume_role {
+  #   role_arn = "arn:aws:iam::${var.aws_id}:role/admin"
+  # }
+}
+
+data "aws_availability_zones" "all" {}
