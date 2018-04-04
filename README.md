@@ -171,7 +171,7 @@ For use of an AWS account hosting sensitive data (e.g. your company's account) t
 	  }
 	}
 
-Once this is set up you should be able to run `terraform plan` to see the resources that will be created - if you've followed the tutorial already via the console these might conflict with existing names. One easy way round this is to switch region in the provider - this also highlights a powerful feature of Terraform to globally deploy infrastructure!
+Once this is set up you should be able to run `terraform init` to set up the provider, then `terraform plan` to see the resources that will be created - if you've followed the tutorial already via the console these might conflict with existing names. One easy way round this is to switch region in the provider - this also highlights a powerful feature of Terraform to globally deploy infrastructure!
 
 ### Other automation tools
 
