@@ -144,6 +144,35 @@ A tool called Terraform can help us to manage our infrastructure as code.
 * Terraform will upload a zip file, but we still need to zip the code
 * We can write a wrapper that compiles and packages our code before Terraform runs. Terraform will check the modification state of the zip file and redeploy if needed.
 
+Using the Terraform project included in this repo:
+
+	cd terraform
+	cp main.tf{.sample,}
+
+Open `main.tf` in an editor and modify the three variables: `aws_id` (go [here](https://console.aws.amazon.com/billing/home?#/account) and it's right at the top), `blog_domain` (blog subdomain and bucket name), `domain` (your main domain).
+
+The provider has a few options. The simplest format would be:
+
+    provider "aws" {
+		region = "eu-west-1"
+		version = "~> 1.7"
+	}
+
+This will use the default profile you've set up using `aws configure` (check this using `cat ~/.aws/credentials`). If you have multiple profiles you may add another parameter `profile = "some-name"`.
+
+For use of an AWS account hosting sensitive data (e.g. your company's account) the best practice is to assume a role. There are other considerations for how to set this up but the terraform component looks like:
+
+	provider "aws" {
+	  region = "eu-west-1"
+	  version = "~> 1.7"
+	  profile = "your-local-profile-name"
+	  assume_role {
+	    role_arn = "arn:aws:iam::${var.aws_id}:role/some-admin-role"
+	  }
+	}
+
+Once this is set up you should be able to run `terraform plan` to see the resources that will be created - if you've followed the tutorial already via the console these might conflict with existing names. One easy way round this is to switch region in the provider - this also highlights a powerful feature of Terraform to globally deploy infrastructure!
+
 ### Other automation tools
 
 * Most popular is [Serverless](https://serverless.com/) which supports multiple providers and multiple languages. It assumes a whole serverless infrastructure, so unlike Terraform doesn't have separate options for managing your IAM users, DNS, S3 buckets etc. However for a pure serverless project it is more powerful. Underneath the hood it uses AWS CloudFormation stacks, which are similar in function to Terraform.
