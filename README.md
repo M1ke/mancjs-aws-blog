@@ -104,6 +104,8 @@ The bash script calls `offline-post.js` using an environment variable to simulat
 
 The AWS functions are stubed locally using `offline-aws.js` which allows an easy way to custom define different local behaviours for various AWS operations. For S3 these will often be simple file operations, but if we wanted to expand to use AWS Simple Email Service or Simple Notification Service to send emails or SMS messages we might want to stub these differently - maybe we'd write files, or send to a local email server such as mailcatcher.
 
+To test the website locally I'm assuming you already have a local web server that can serve traffic in `/var/www/some-dir` as `http://localhost/some-dir`. If you do then run `bash link-local` to create `http://localhost/lambda-blog` so you can run the full experience on your own machine.
+
 ## Setting up on AWS 
 
 ### IAM - permissions to use our account
